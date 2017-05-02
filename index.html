@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>jQuery Canvas Plugin</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="js/jquery-canvas-plugin.min.js"></script>
+  <style type="text/css">
+    * { outline: none; }
+    body { display: flex; justify-content: center; font-size: 18px; background-color: #ffffff; margin: 0;}
+    aside { width: 17.5rem; padding: 0 1.5rem; }
+    .images { display: flex; justify-content: center; margin: 2rem auto; position: relative; height: 11.5em; }
+    .left .images img { max-width: 75%; position: absolute; -webkit-animation:spin 10s linear infinite; -moz-animation:spin 10s linear infinite; animation:spin 10s linear infinite; }
+    .left .images:last-child { display: flex; justify-content: flex-end; }
+    .left .images:last-child img { float: right; -webkit-animation:spin 20s linear infinite; -moz-animation:spin 20s linear infinite; animation:spin 20s linear infinite; }
+    .right img { max-width: 75%; position: absolute; -webkit-animation:spin 50s linear infinite; -moz-animation:spin 50s linear infinite; animation:spin 50s linear infinite; }
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    h1 { font-size: 4rem; text-align: center; margin: 2rem 0rem; }
+    h3 { text-align: center; }
+    pre { display: flex; justify-content: center; background: #fdfaeb; color: #323330; font-size: 1rem; margin: 0.5rem 1.3rem; }
+    .string { color: #d14; }
+    .number { color: #3e999f; }
+    .boolean { color: #07a; }
+    #canvas { display: flex; flex-direction: column; align-items: center; margin: 1.2rem 0 0 0; }
+    #canvas canvas { border: 3px solid #746969; }
+    #canvas2 canvas { border: 3px solid #cddc39; }
+    input { margin: 10px 20px 10px 5px; border: 2px solid #dcdcdc; border-radius: 5px; transition: .3s; }
+    input:hover { border-color: #746969; }
+    button { background-color: #ffffff; border-radius: 6px; border: 1px solid #dcdcdc; display: inline-block; cursor: pointer; color: #666666; font-family: Arial; font-size: 15px; font-weight: 600; padding: 10px 24px; margin: 5px; transition: all 0.3s linear; }
+    button:hover { background-color: #f6f6f6; }
+  </style>
+</head>
+<body>
+  <aside class="left">
+    <h1>jQuery Canvas Plugin</h1>
+    <div class="images">
+      <img src="img/1.png" />
+    </div>
+    <div class="images">
+      <img src="img/2.png" />
+    </div>
+  </aside>
+  <div id="canvas"></div>
+  <aside class="right">
+    <div class="images">
+      <img src="img/3.png" />
+    </div>
+    <h3>1. Initialize plugin.</h3>
+    <h3>2. Create Canvas with defaults:</h3>
+    <pre>
+      <code>
+$(<span class="string">'#id'</span>).canvas();
+      </code>
+    </pre>
+    <h3>3. Or with customs:</h3>
+    <pre>
+      <code>
+$(<span class="string">'#canvas'</span>).canvas({
+ <span class="string">width:</span> <span class="number">600</span>,
+ <span class="string">height:</span> <span class="number">600</span>,
+ <span class="string">color: '#000000'</span>,
+ <span class="string">backColor: '#ffffff'</span>,
+ <span class="string">grid:</span> <span class="boolean">false</span>,
+ <span class="string">gridColor: '#000000'</span>,
+ <span class="string">rotation:</span> <span class="boolean">true</span>
+});
+      </code>
+    </pre>
+  </aside>
+  <script type="text/javascript">
+    $('#canvas').canvas({
+        width: 600,
+        height: 600,
+        color: '#000000',
+        backColor: '#ffffff',
+        grid: false,
+        gridColor: '#000000',
+        rotation: true
+      });
+  </script>
+</body>
+</html>
